@@ -1,0 +1,247 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* Using multiple background images */
+    background: url('assets/home.jpg') no-repeat center center fixed,
+                url('assets/home2.jpg') no-repeat top center fixed,
+                url('assets/home3.jpg') no-repeat bottom center fixed;
+    /* Adjust background sizes as needed */
+    background-size: cover, cover, cover;
+    /* Ensure images don't repeat and cover the entire background */
+    background-blend-mode: screen; /* Optional: Adjust blending mode for desired effect */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    animation: changeBackground 20s infinite alternate, colorShift 10s infinite alternate; /* Optional: Add animation for dynamic change */
+    overflow: hidden; /* Prevent scrollbars during background transitions */
+}
+
+@keyframes changeBackground {
+    0% {
+        background-image: url('assets/home.jpg');
+    }
+    33% {
+        background-image: url('assets/home2.jpg');
+    }
+    66% {
+        background-image: url('assets/home3.jpg');
+    }
+    100% {
+        background-image: url('assets/home.jpg');
+    }
+}
+
+@keyframes colorShift {
+    0% {
+        background-color: rgba(255, 0, 0, 0.1); /* Red */
+    }
+    25% {
+        background-color: rgba(0, 255, 0, 0.1); /* Green */
+    }
+    50% {
+        background-color: rgba(0, 0, 255, 0.1); /* Blue */
+    }
+    75% {
+        background-color: rgba(255, 255, 0, 0.1); /* Yellow */
+    }
+    100% {
+        background-color: rgba(255, 0, 0, 0.1); /* Red */
+    }
+}
+
+.container {
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white */
+    padding: 30px; /* Increased padding */
+    border-radius: 15px; /* More rounded corners */
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3); /* Stronger shadow */
+    width: 400px; /* Slightly wider */
+    text-align: center;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Added box-shadow transition */
+    backdrop-filter: blur(5px); /* Apply a blur to the background */
+}
+
+/* Add image */
+.container img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+}
+
+/* Hover effect */
+.container:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.4); /* Stronger shadow on hover */
+}
+
+h2 {
+    color: #333;
+    font-size: 22px;
+    margin-bottom: 10px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1); /* Slight text shadow */
+}
+
+/* Labels */
+label {
+    display: block;
+    text-align: left;
+    margin: 10px 0 5px;
+    font-size: 14px;
+    color: #555;
+}
+
+/* Input fields */
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 12px;
+    margin: 5px 0 15px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+    transition: border-color 0.3s ease-in-out;
+}
+
+/* Focus effect */
+input[type="text"]:focus,
+input[type="password"]:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+/* Buttons */
+button {
+    width: 100%;
+    padding: 12px;
+    background-color: #007bff;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Unique Button Style */
+.unique-button {
+    width: 100%;
+    padding: 12px;
+    margin: 5px 0 15px;
+    background-color: #28a745; /* Example: Green */
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 25px; /* Rounded corners */
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Add a shadow */
+}
+
+.unique-button:hover {
+    background-color: #218838;
+    transform: scale(1.02); /* Slight scale up on hover */
+}
+
+/* Navigation List */
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    margin: 10px 0;
+}
+
+#adminSection, #nonAdminSection, #brokerSection {
+    display: none;
+}
+
+/* Switch Styles */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+  border-radius: 34px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+/* ✅ Responsive Design */
+@media (max-width: 480px) {
+    .container {
+        width: 90%;
+        padding: 15px;
+    }
+    
+    button {
+        padding: 10px;
+    }
+    
+    h2 {
+        font-size: 20px;
+    }
+}

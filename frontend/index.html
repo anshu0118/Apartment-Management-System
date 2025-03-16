@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apartment Management System</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="data:,">
+</head>
+<body>
+
+    <div class="container">
+        <!-- Login Section -->
+        <img src="assets/logo.png" alt="Company Logo">
+        <div class="login-section" id="loginSection">
+            <h2>Login</h2>
+            <label for="username">Username:</label>
+            <input type="text" id="username" placeholder="Enter Username">
+            <label for="password">Password:</label>
+            <input type="password" id="password" placeholder="Enter Password">
+            <button onclick="login()">Login</button>
+        </div>
+
+        <!-- Admin Control Section -->
+        <div class="admin-section" id="adminSection">
+            <h2>Admin Control</h2>
+            <ul>
+                <li><button onclick="addApartment()">Add Apartment</button></li>
+                <li><button onclick="viewApartmentDetails()">View Apartment Details</button></li>
+                <li><button onclick="viewComplaints()">View Complaints</button></li>
+                <li><button onclick="recordComplaint()">Record Complaint</button></li>
+                <li><button onclick="resolveComplaint()">Resolve Complaint</button></li>
+                <li><button onclick="deleteApartment()">Delete Apartment</button></li>
+            </ul>
+        </div>
+
+        <!-- Non-Admin Section -->
+        <div class="non-admin-section" id="nonAdminSection">
+            <h2>Non-Admin Control</h2>
+            <ul>
+                <li><button onclick="viewComplaints()">View Complaints</button></li>
+                <li><button onclick="recordComplaint()">Record Complaint</button></li>
+                <li><button onclick="viewOwnDetails()">View Own Details</button></li>
+            </ul>
+        </div>
+
+        <!-- Broker Control Section -->
+        <div class="broker-section" id="brokerSection">
+            <h2>Broker Control</h2>
+            <ul>
+                <li><button onclick="viewAvailableApartments()">View Available Apartments</button></li>
+                <li><button onclick="viewComplaints()">View Complaints</button></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- <script> -->
+        <!-- let username = document.getElementById('username').val() -->
+        <!-- let passsword = document.getElementById('password').val() -->
+
+       
+        
+    <!-- </script> -->
+
+    <script src="app.js"></script>
+    <script src="./user.js"></script>
+    <script src="./apartment.js"></script>
+    <script src="./backend/server.js"></script>
+    <script src="./backend/db.js"></script>
+</body>
+</html>
